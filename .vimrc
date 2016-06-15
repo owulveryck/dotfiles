@@ -12,6 +12,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 "
 "
+Plugin 'fatih/vim-go'
 " for javascript
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'pangloss/vim-javascript'
@@ -19,7 +20,6 @@ Plugin 'nathanaelkane/vim-indent-guides'
 " for json
 Plugin 'elzr/vim-json'
 
-Plugin 'scrooloose/syntastic'
 Plugin 'Shougo/neocomplete'
 "
 Plugin 'Shougo/neosnippet'
@@ -27,7 +27,10 @@ Plugin 'Shougo/neosnippet-snippets'
 Plugin 'majutsushi/tagbar'
 Plugin 'nsf/gocode', {'rtp': 'vim/'}
 Plugin 'rjohnsondev/vim-compiler-go'
-Plugin 'fatih/vim-go'
+
+" for git
+Plugin 'airblade/vim-gitgutter'
+Plugin 'scrooloose/syntastic'
 " Plugin 'vim-airline/vim-airline'
 
 " All of your Plugins must be added before the following line
@@ -142,9 +145,9 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
-let g:go_list_type = "quickfix"
-let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
-let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
+"let g:go_list_type = "quickfix"
+"let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
+"let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 "------------------------------------------------------------------------------
 " NeoComplete
 "------------------------------------------------------------------------------
@@ -270,5 +273,5 @@ let g:tagbar_type_go = {
     \ 'ctagsargs' : '-sort -silent'
 \ }
 
-let g:golang_goroot = "$GOROOT"
+" let g:golang_goroot = "$GOROOT"
 
