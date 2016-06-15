@@ -26,7 +26,7 @@ Plugin 'Shougo/neosnippet'
 Plugin 'Shougo/neosnippet-snippets'
 Plugin 'majutsushi/tagbar'
 Plugin 'nsf/gocode', {'rtp': 'vim/'}
-Plugin 'rjohnsondev/vim-compiler-go'
+" Plugin 'rjohnsondev/vim-compiler-go'
 
 " for git
 Plugin 'airblade/vim-gitgutter'
@@ -104,7 +104,7 @@ set hlsearch
 set incsearch
 
 " Don't redraw while executing macros (good performance config)
-set lazyredraw
+" set lazyredraw
 
 " For regular expressions turn magic on
 set magic
@@ -146,8 +146,14 @@ let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 
 "let g:go_list_type = "quickfix"
-let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
-let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
+"let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
+"" use goimports for formatting
+let g:go_fmt_command = "goimports"
+
+" turn highlighting on
+"
+let g:syntastic_go_checkers = ['go', 'golint', 'errcheck']
+"
 "------------------------------------------------------------------------------
 " NeoComplete
 "------------------------------------------------------------------------------
@@ -231,6 +237,11 @@ au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
 
 " Open the Godoc in browser
 au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
+
+" " Open go doc in vertical window, horizontal, or tab
+au Filetype go nnoremap <leader>v :vsp <CR>:exe "GoDef" <CR>
+au Filetype go nnoremap <leader>s :sp <CR>:exe "GoDef"<CR>
+au Filetype go nnoremap <leader>t :tab split <CR>:exe "GoDef"<CR>
 
 " Run/build/test/coverage
 au FileType go nmap <leader>r <Plug>(go-run)
