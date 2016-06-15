@@ -83,7 +83,7 @@ source $ZSH/oh-my-zsh.sh
 
 export TERM=xterm-256color
 
-export GOROOT=$HOME/GOPROJECTS/src/github.com/golang/go
+export GOROOT=$HOME/go-dist
 export GOPATH=~/GOPROJECTS
 export PATH=$PATH:$GOROOT/bin
 export PATH=$PATH:$GOPATH/bin
