@@ -10,8 +10,6 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'fatih/vim-go'
-Plugin 'nsf/gocode', {'rtp': 'vim/'}
 "
 "
 " for javascript
@@ -27,6 +25,11 @@ Plugin 'Shougo/neocomplete'
 Plugin 'Shougo/neosnippet'
 Plugin 'Shougo/neosnippet-snippets'
 Plugin 'majutsushi/tagbar'
+Plugin 'nsf/gocode', {'rtp': 'vim/'}
+Plugin 'rjohnsondev/vim-compiler-go'
+Plugin 'fatih/vim-go'
+" Plugin 'vim-airline/vim-airline'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -51,6 +54,82 @@ let g:neocomplete#enable_at_startup = 1
 nmap <F8> :TagbarToggle<CR>
 
 "------------------------------------------------------------------------------
+" General
+"------------------------------------------------------------------------------
+"
+"------------------------------------------------------------------------------
+" VIM user interface
+"------------------------------------------------------------------------------
+
+" Make sure that coursor is always vertically centered on j/k moves
+set so=999
+
+" Turn on the WiLd menu
+set wildmenu
+
+" Set command-line completion mode
+set wildmode=list:longest,full
+
+" Highlight current line - allows you to track cursor position more easily
+set cursorline
+
+" Completion options (select longest + show menu even if a single match is found)
+set completeopt=longest,menuone
+
+" Show line, column number, and relative position within a file in the status line
+set ruler
+
+" Show line numbers - could be toggled on/off on-fly by pressing F6
+set number
+
+" Show (partial) commands (or size of selection in Visual mode) in the status line
+set showcmd
+
+" Allow smarter completion by infering the case
+set infercase
+
+" Ignore case when searching
+set ignorecase
+
+" When searching try to be smart about cases
+set smartcase
+
+" Highlight search results
+set hlsearch
+
+" Makes search act like search in modern browsers
+set incsearch
+
+" Don't redraw while executing macros (good performance config)
+set lazyredraw
+
+" For regular expressions turn magic on
+set magic
+
+" Show matching brackets when text indicator is over them
+set showmatch
+
+" How many tenths of a second to blink when matching brackets
+set mat=2
+
+" No annoying sound on errors
+set noerrorbells
+set novisualbell
+set t_vb=
+set tm=500
+
+"------------------------------------------------------------------------------
+" Status line
+"------------------------------------------------------------------------------
+" Always show the status line
+set laststatus=2
+
+" Format the status line
+" set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
+
+
+
+"------------------------------------------------------------------------------
 " Syntastic
 "------------------------------------------------------------------------------
 set statusline+=%#warningmsg#
@@ -63,6 +142,9 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
+let g:go_list_type = "quickfix"
+let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
+let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 "------------------------------------------------------------------------------
 " NeoComplete
 "------------------------------------------------------------------------------
@@ -187,3 +269,6 @@ let g:tagbar_type_go = {
     \ 'ctagsbin'  : 'gotags',
     \ 'ctagsargs' : '-sort -silent'
 \ }
+
+let g:golang_goroot = "$GOROOT"
+
