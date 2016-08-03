@@ -32,6 +32,10 @@ Plugin 'nsf/gocode', {'rtp': 'vim/'}
 Plugin 'airblade/vim-gitgutter'
 Plugin 'scrooloose/syntastic'
 " Plugin 'vim-airline/vim-airline'
+" markdown
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'cespare/vim-toml'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -219,6 +223,15 @@ let g:neocomplete#force_omni_input_patterns.go = '[^.[:digit:] *\t]\.'
 "let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 
 
+"------------------------------------------------------------------------------
+" vim-markdown
+"------------------------------------------------------------------------------
+
+let g:vim_markdown_toc_autofit = 1
+let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_frontmatter = 1
+let g:vim_markdown_math = 1
+let g:vim_markdown_toml_frontmatter = 1
 "------------------------------------------------------------------------------
 " Vim-go
 "------------------------------------------------------------------------------
