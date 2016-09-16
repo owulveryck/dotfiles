@@ -16,6 +16,8 @@ Plugin 'fatih/vim-go'
 " for javascript
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'pangloss/vim-javascript'
+Plugin 'othree/javascript-libraries-syntax.vim'
+Plugin 'matthewsimo/angular-vim-snippets'
 Plugin 'nathanaelkane/vim-indent-guides'
 " for json
 Plugin 'elzr/vim-json'
