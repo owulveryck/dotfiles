@@ -8,5 +8,7 @@ cp .tmux.conf ~/
 #  Install oh-my-szh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 cp .zshrc ~/
-# INstall jshint for syntastic
-sudo npm install -g jshint
+# INstall eslint for syntastic
+sudo inpm install -g eslint
+sudo npm install -g babel-eslint
+sudo npm install -g eslint-plugin-react

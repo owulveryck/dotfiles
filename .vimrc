@@ -14,9 +14,12 @@ Plugin 'VundleVim/Vundle.vim'
 "
 Plugin 'fatih/vim-go'
 " for javascript
-Plugin 'jelera/vim-javascript-syntax'
+" Plugin 'jelera/vim-javascript-syntax'
 Plugin 'pangloss/vim-javascript'
-Plugin 'othree/javascript-libraries-syntax.vim'
+" Plugin 'othree/javascript-libraries-syntax.vim'
+Plugin 'mxw/vim-jsx'
+let g:jsx_ext_required = 0 " Allow JSX in normal JS files
+
 Plugin 'matthewsimo/angular-vim-snippets'
 Plugin 'nathanaelkane/vim-indent-guides'
 " for json
@@ -40,6 +43,8 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'cespare/vim-toml'
 
 Plugin 'maksimr/vim-jsbeautify'
+Plugin 'scrooloose/nerdtree'
+
 
 
 " All of your Plugins must be added before the following line
@@ -153,6 +158,8 @@ let g:syntastic_always_populate_loc_list = 0
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
+
+let g:syntastic_javascript_checkers = ['eslint']
 
 "let g:go_list_type = "quickfix"
 "let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
@@ -303,4 +310,19 @@ let g:tagbar_type_go = {
 \ }
 
 " let g:golang_goroot = "$GOROOT"
+" let g:syntastic_html_tidy_ignore_errors=["<ion-", "discarding unexpected </ion-", " proprietary attribute \"ng-"]
 
+let g:syntastic_html_tidy_ignore_errors = [
+    \  '<ion-', 
+    \  'discarding unexpected </ion-', 
+    \  ' proprietary attribute "ng-',
+    \  'plain text isn''t allowed in <head> elements',
+    \  '<base> escaping malformed URI reference',
+    \  'discarding unexpected <body>',
+    \  '<script> escaping malformed URI reference',
+    \  '</head> isn''t allowed in <body> elements'
+    \ ]
+
+" Nerdtree
+"autocmd vimenter * NERDTree
+"autocmd vimenter * wincmd p
