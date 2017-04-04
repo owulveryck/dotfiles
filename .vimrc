@@ -45,6 +45,7 @@ Plugin 'cespare/vim-toml'
 Plugin 'maksimr/vim-jsbeautify'
 Plugin 'scrooloose/nerdtree'
 
+Plugin 'morhetz/gruvbox'
 
 
 " All of your Plugins must be added before the following line
@@ -326,3 +327,5 @@ let g:syntastic_html_tidy_ignore_errors = [
 " Nerdtree
 "autocmd vimenter * NERDTree
 "autocmd vimenter * wincmd p
+set background=dark
+colorscheme gruvbox
