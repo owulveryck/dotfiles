@@ -47,6 +47,8 @@ Plugin 'scrooloose/nerdtree'
 
 Plugin 'morhetz/gruvbox'
 
+Plugin 'Shougo/vimproc.vim'
+Plugin 'rhysd/vim-grammarous'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -249,7 +251,7 @@ let g:vim_markdown_toml_frontmatter = 1
 " Vim-go
 "------------------------------------------------------------------------------
 let g:go_fmt_fail_silently = 1
-let g:go_fmt_command = "gofmt" "Explicited the formater plugin (gofmt, goimports, goreturn...)
+let g:go_fmt_command = "goimports" "Explicited the formater plugin (gofmt, goimports, goreturn...)
 
 " Show a list of interfaces which is implemented by the type under your cursor
 au FileType go nmap <Leader>s <Plug>(go-implements)
@@ -329,3 +331,29 @@ let g:syntastic_html_tidy_ignore_errors = [
 "autocmd vimenter * wincmd p
 set background=dark
 colorscheme gruvbox
+syn on
+let g:grammarous#disabled_rules = {
+            \ '*' : ['WHITESPACE_RULE', 'EN_QUOTES'],
+            \ 'help' : ['WHITESPACE_RULE', 'EN_QUOTES', 'SENTENCE_WHITESPACE', 'UPPERCASE_SENTENCE_START'],
+            \ }
+let g:grammarous#use_vim_spelllang = 1
+" https://vi.stackexchange.com/questions/7368/how-can-i-type-the-alphabetic-subscripts/7372
+"alphsubs ---------------------- {{{
+        execute "digraphs ks " . 0x2096
+        execute "digraphs as " . 0x2090
+        execute "digraphs es " . 0x2091
+        execute "digraphs hs " . 0x2095
+        execute "digraphs is " . 0x1D62
+        execute "digraphs ks " . 0x2096
+        execute "digraphs ls " . 0x2097
+        execute "digraphs ms " . 0x2098
+        execute "digraphs ns " . 0x2099
+        execute "digraphs os " . 0x2092
+        execute "digraphs ps " . 0x209A
+        execute "digraphs rs " . 0x1D63
+        execute "digraphs ss " . 0x209B
+        execute "digraphs ts " . 0x209C
+        execute "digraphs us " . 0x1D64
+        execute "digraphs vs " . 0x1D65
+        execute "digraphs xs " . 0x2093
+"}}
