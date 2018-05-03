@@ -83,7 +83,7 @@ source $ZSH/oh-my-zsh.sh
 
 export TERM=xterm-256color
 
-export GOROOT=$HOME/go-dist
+export GOROOT=$HOME/go
 export GOPATH=~/GOPROJECTS
 export PATH=$PATH:$GOROOT/bin
 export PATH=$PATH:$GOPATH/bin
@@ -97,3 +97,22 @@ ssh() {
 }
 
 export PS1='${ret_status}%{$fg_bold[green]%}%m %{$fg[cyan]%}%c %{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%}'
+# use brew vim if present
+/usr/local/bin/vim --version > /dev/null 2>&1
+BREW_VIM_INSTALLED=$?
+if [ $BREW_VIM_INSTALLED -eq 0 ]; then
+  alias vi="/usr/local/bin/vim"
+fi
+# --files: List files that would be searched but do not search
+# --no-ignore: Do not respect .gitignore, etc...
+# --hidden: Search hidden files and folders
+# --follow: Follow symlinks
+# --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+# fzf via Homebrew
+if [ -e /usr/local/opt/fzf/shell/completion.zsh ]; then
+  source /usr/local/opt/fzf/shell/key-bindings.zsh
+  source /usr/local/opt/fzf/shell/completion.zsh
+fi
+source .fzf.sh
+

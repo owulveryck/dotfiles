@@ -27,8 +27,10 @@ Plugin 'elzr/vim-json'
 
 Plugin 'Shougo/neocomplete'
 "
-Plugin 'Shougo/neosnippet'
-Plugin 'Shougo/neosnippet-snippets'
+"Plugin 'Shougo/neosnippet'
+"Plugin 'Shougo/neosnippet-snippets'
+Plugin 'SirVer/ultisnips'
+
 Plugin 'majutsushi/tagbar'
 Plugin 'nsf/gocode', {'rtp': 'vim/'}
 " Plugin 'rjohnsondev/vim-compiler-go'
@@ -49,6 +51,9 @@ Plugin 'morhetz/gruvbox'
 
 Plugin 'Shougo/vimproc.vim'
 Plugin 'rhysd/vim-grammarous'
+
+" asciidoc
+Plugin 'asciidoc/vim-asciidoc'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -71,6 +76,9 @@ set softtabstop=2
 " Do not advize me... for now
 let g:vim_json_syntax_conceal = 0
 let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1
+let g:neocomplete#sources#syntax#min_keyword_length = 2
+
 nmap <F8> :TagbarToggle<CR>
 
 "------------------------------------------------------------------------------
@@ -277,6 +285,27 @@ au FileType go nmap <leader>b <Plug>(go-build)
 au FileType go nmap <leader>t <Plug>(go-test)
 au FileType go nmap <leader>c <Plug>(go-coverage)
 
+let g:go_gocode_socket_type = "tcp"
+let g:go_gocode_autobuild=0
+let g:go_gocode_propose_builtins = 0
+let g:go_fmt_command = "goimports"
+let g:go_metalinter_autosave = 1
+let g:go_highlight_types = 0
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_operators = 0
+let g:go_auto_sameids = 0
+let g:go_auto_type_info = 0
+let g:go_updatetime = 800
+let g:go_gorename_prefill = 0
+let g:go_metalinter_enabled = ['golint']
+let g:go_auto_sameids = 1
+
+map <C-n> :cnext<CR>
+map <C-m> :cprevious<CR>
+nnoremap <leader>a :cclose<CR>
+
 " By default syntax-highlighting for Functions, Methods and Structs is disabled.
 " Let's enable them!
 let g:go_highlight_functions = 1
@@ -357,3 +386,13 @@ let g:grammarous#use_vim_spelllang = 1
         execute "digraphs vs " . 0x1D65
         execute "digraphs xs " . 0x2093
 "}}
+"https://vi.stackexchange.com/questions/177/what-is-the-purpose-of-swap-files
+"The ^= syntax for :set prepends the directory name to the head of the list, so Vim will check that directory first.
+"The // at the end of the directory name tells Vim to use the absolute path to the file to create the swap file so there aren't collisions between files of the same name from different directories.
+"
+"Note that this will prevent Vim from noticing when there are multiple users trying to edit the same file. Since the swap file isn't in the same directory as the original file, the other user's Vim won't know about the swap file and won't warn them that it's already being edited.
+set directory^=$HOME/.vim/tmp//
+
+" fzf If installed using Homebrew
+set rtp+=/usr/local/opt/fzf
+
