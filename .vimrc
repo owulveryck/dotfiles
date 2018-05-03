@@ -396,3 +396,5 @@ set directory^=$HOME/.vim/tmp//
 " fzf If installed using Homebrew
 set rtp+=/usr/local/opt/fzf
 
+set rtp+=~/.fzf
+Plugin 'junegunn/fzf.vim'
