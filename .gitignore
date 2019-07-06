@@ -1,0 +1,3 @@
+terraform/devmachine/terraform.tfvars
+terraform/devmachine/*tfstate*
+terraform/devmachine/.terraform

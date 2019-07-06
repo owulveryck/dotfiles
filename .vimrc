@@ -13,6 +13,7 @@ Plugin 'VundleVim/Vundle.vim'
 "
 "
 Plugin 'fatih/vim-go'
+Plugin 'zchee/vim-go-slide'
 " for javascript
 " Plugin 'jelera/vim-javascript-syntax'
 Plugin 'pangloss/vim-javascript'
