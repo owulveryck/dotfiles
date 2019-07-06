@@ -15,7 +15,7 @@ resource "aws_spot_instance_request" "dev-spot" {
 
 resource "aws_instance" "dev" {
   ami               = "${data.aws_ami.ubuntu.id}"
-  instance_type     = "t2.micro"
+  instance_type     = "${var.instance_type}"
   key_name          = "${var.keyName}"
   availability_zone = "us-east-1d"
   user_data         = "${file("postInstall.sh")}"
