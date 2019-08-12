@@ -15,7 +15,7 @@ data "aws_ami" "ubuntu" {
 }
 
 data "aws_security_group" "ssh" {
-  tags {
+  tags = {
     "Name" = "SSHMaison"
   }
 }
@@ -35,9 +35,10 @@ data "aws_ebs_volume" "home" {
 }
 
 data "aws_route53_zone" "myzone" {
-  name = "${var.zoneName}"
+  name = var.zoneName
 
   tags = {
     "Name" = "PublicZone"
   }
 }
+

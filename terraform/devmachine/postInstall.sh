@@ -1,6 +1,7 @@
 #! /bin/bash
+DISK="/dev/$(which lsblk >/dev/null && lsblk  | grep 20G | awk '{print $1}' || echo "xvdh")"
+sudo mount $DISK /home
 sudo apt-get update
 sudo apt-get install -y zsh gcc
 sudo apt-get install -y mosh
-sudo mount /dev/xvdh /home
 sudo timedatectl set-timezone CET

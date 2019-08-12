@@ -1,22 +1,23 @@
 variable "instance_type" {
-  type    = "string"
+  type    = string
   default = "t2.micro"
 }
 
 variable "host" {
-  type    = "string"
+  type    = string
   default = "dev"
 }
 
 variable "zoneName" {
-  type = "string"
+  type = string
 }
 
 variable "keyName" {
-  type = "string"
+  type = string
 }
 
 variable "deepLearningAMI" {
-  type    = "string"
+  type    = string
   default = "ami-0757fc5a639fe7666" # Deep Learning AMI (Ubuntu) Version 23.1
 }
+
