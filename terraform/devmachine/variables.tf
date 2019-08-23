@@ -1,6 +1,11 @@
 variable "instance_type" {
   type    = string
-  default = "t2.micro"
+  default = "t3.xlarge"
+}
+
+variable "gpu_instance_type" {
+  type    = string
+  default = "g3s.xlarge"
 }
 
 variable "host" {
@@ -16,8 +21,8 @@ variable "keyName" {
   type = string
 }
 
-variable "deepLearningAMI" {
-  type    = string
-  default = "ami-0757fc5a639fe7666" # Deep Learning AMI (Ubuntu) Version 23.1
+variable "gpu" {
+  type    = bool
+  default = false
 }
 

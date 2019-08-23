@@ -1,3 +1,22 @@
+data "aws_ami" "dlami_ubuntu" {
+  //aws ec2 describe-images --owners amazon --filters 'Name=state,Values=available' 'Name=name,Values=Deep Learning AMI (Ubuntu)*' --query 'sort_by(Images, &CreationDate)[].Name'
+
+  most_recent = true
+
+  filter {
+    name   = "name"
+    values = ["Deep Learning AMI (Ubuntu)*"]
+  }
+
+  filter {
+    name   = "virtualization-type"
+    values = ["hvm"]
+  }
+
+  owners = ["amazon"]
+
+}
+
 data "aws_ami" "ubuntu" {
   most_recent = true
 

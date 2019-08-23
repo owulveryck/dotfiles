@@ -1,27 +1,12 @@
-/*  
-resource "aws_spot_instance_request" "dev-spot" {
-  ami               = "${var.deepLearningAMI}"
-  availability_zone = "us-east-1d"
-  key_name          = "${var.keyName}"
-  spot_type         = "one-time"
-  instance_type     = "t2.micro"
-  user_data         = "${file("postInstall.sh")}"
-
-  tags = {
-    Name = "Dev"
-  }
-}
-*/
-
 resource "aws_instance" "dev" {
-  ami               = data.aws_ami.ubuntu.id
-  instance_type     = var.instance_type
+  ami               = var.gpu ? data.aws_ami.dlami_ubuntu.id : data.aws_ami.ubuntu.id
+  instance_type     = var.gpu ? var.gpu_instance_type : var.instance_type
   key_name          = var.keyName
   availability_zone = "us-east-1d"
   user_data         = file("postInstall.sh")
 
   tags = {
-    Name = "Dev"
+    Name = "dev"
   }
 }
 
