@@ -3,7 +3,7 @@ resource "aws_instance" "dev" {
   instance_type     = var.gpu ? var.gpu_instance_type : var.instance_type
   key_name          = var.keyName
   availability_zone = "us-east-1d"
-  user_data         = file("postInstall.sh")
+  user_data         = file("user-data.sh")
 
   tags = {
     Name = "dev"
