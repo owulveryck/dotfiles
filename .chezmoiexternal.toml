@@ -15,3 +15,14 @@
     url = "https://github.com/romkatv/powerlevel10k/archive/v1.15.0.tar.gz"
     exact = true
     stripComponents = 1
+[".vim/pack/plugins/start/vim-go"]
+    type = "archive"
+    url = "https://github.com/fatih/vim-go/archive/v1.25.tar.gz"
+    exact = true
+    stripComponents = 1
+[".vim/pack/default/start/gruvbox"]
+    type = "archive"
+    url = "https://github.com/morhetz/gruvbox/archive/master.tar.gz"
+    exact = true
+    stripComponents = 1
+
