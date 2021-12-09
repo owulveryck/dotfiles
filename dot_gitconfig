@@ -1,0 +1,9 @@
+[url "git@github.com:"]
+        insteadOf = https://github.com/
+[user]
+        name = Olivier Wulveryck
+        email = olivier.wulveryck@gmail.com
+[http]
+        cookiefile = ~/.gitcookies
+[core]
+        excludesfile = ~/.gitignore_global
