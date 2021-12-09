@@ -6,23 +6,6 @@ if &compatible
 endif
 
 " Required:
-set runtimepath+=/home/olivier/.cache/dein/repos/github.com/Shougo/dein.vim
-
-" Required:
-call dein#begin('/home/olivier/.cache/dein')
-
-" Let dein manage dein
-" Required:
-call dein#add('/home/olivier/.cache/dein/repos/github.com/Shougo/dein.vim')
-
-" Add or remove your plugins here like this:
-"call dein#add('Shougo/neosnippet.vim')
-"call dein#add('Shougo/neosnippet-snippets')
-
-" Required:
-call dein#end()
-
-" Required:
 filetype plugin indent on
 syntax enable
 
@@ -30,14 +13,6 @@ syntax enable
 "if dein#check_install()
 "  call dein#install()
 "endif
-
-"End dein Scripts-------------------------
-call dein#add('Shougo/deoplete.nvim')
-if !has('nvim')
-  call dein#add('roxma/nvim-yarp')
-  call dein#add('roxma/vim-hug-neovim-rpc')
-endif
-let g:deoplete#enable_at_startup = 1
 
 
 set nocompatible              " be iMproved, required
@@ -160,6 +135,9 @@ let g:go_list_type = "quickfix"
 "let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 "" use goimports for formatting
 let g:go_fmt_command = "goimports"
+" Enable lsp for go by using gopls
+let g:completor_filetype_map = {}
+let g:completor_filetype_map.go = {'ft': 'lsp', 'cmd': 'gopls -remote=auto'}"
 
 " turn highlighting on
 "
@@ -191,6 +169,9 @@ let g:go_highlight_functions = 1
 let g:go_highlight_function_calls = 1
 let g:go_highlight_extra_types = 1
 let g:go_highlight_operators = 1
+" Use new vim 8.2 popup windows for Go Doc
+let g:go_doc_popup_window = 1
+
 
 " Auto formatting and importing
 let g:go_fmt_autosave = 1
