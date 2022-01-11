@@ -35,3 +35,8 @@
     url = "https://github.com/buoto/gotests-vim/archive/master.tar.gz"
     exact = true
     stripComponents = 1
+[".vim/pack/vendor/start/nerdtree"]
+    type = "archive"
+    url = "https://github.com/preservim/nerdtree/archive/master.tar.gz"
+    exact = true
+    stripComponents = 1
