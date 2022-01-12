@@ -1,0 +1,15 @@
+ qemu-system-x86_64 \
+  -accel hvf \
+  -cpu Nehalem-v1 \
+  -smp 2 \
+  -m 4G \
+  -usb \
+  -vga virtio \
+  -device usb-tablet \
+  -display default,show-cursor=on \
+  -device virtio-net,netdev=vmnic -netdev user,id=vmnic \
+  -audiodev coreaudio,id=coreaudio \
+  -device ich9-intel-hda -device hda-output,audiodev=coreaudio \
+  -full-screen \
+  -cdrom ../Downloads/manjaro-i3-21.1.2-210907-linux513.iso \
+  -drive file=manjaro_disk.img,if=virtio 
