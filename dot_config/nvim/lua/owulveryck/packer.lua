@@ -8,7 +8,11 @@ return require('packer').startup(function(use)
 
 	-- Packer can manage itself
 	use 'wbthomason/packer.nvim'
-	use 'folke/tokyonight.nvim'
+	-- use 'phanviet/vim-monokai-pro'
+	use {
+		'tanvirtin/monokai.nvim',
+		config = require('monokai').setup { palette = require('monokai').pro },
+	}
 	use 'dstein64/vim-startuptime'
 	use {
 		'nvim-treesitter/nvim-treesitter',
@@ -68,4 +72,8 @@ return require('packer').startup(function(use)
 		},
 		config = get_setup('telescope'),
 	} 
+	use {
+		"norcalli/nvim-colorizer.lua",
+		config = get_setup("colorizer"),
+	}
 end)
