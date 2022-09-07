@@ -19,7 +19,7 @@ return require('packer').startup(function(use)
 		run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
 		config = get_setup('treesitter'),
 	}
-	use{ 
+	use{
 		'ray-x/go.nvim',
 		requires = "ray-x/guihua.lua",
 		after = 'nvim-cmp',
@@ -37,7 +37,14 @@ return require('packer').startup(function(use)
 			'f3fora/cmp-spell', 'hrsh7th/cmp-emoji'
 		},
 	}
-	use 'neovim/nvim-lspconfig'
+	use {
+		"williamboman/mason.nvim",
+		"williamboman/mason-lspconfig.nvim",
+	}
+	use {
+		"neovim/nvim-lspconfig",
+		config = get_setup('lsp'),
+	}
 	use {
 		'nvim-lualine/lualine.nvim',
 		config = get_setup('lualine'),
@@ -67,11 +74,11 @@ return require('packer').startup(function(use)
 	end}
 	use {
 		'nvim-telescope/telescope.nvim', tag = '0.1.0',
-		requires = { 
+		requires = {
 			'nvim-lua/plenary.nvim', 'kyazdani42/nvim-web-devicons', 'sharkdp/fd',
 		},
 		config = get_setup('telescope'),
-	} 
+	}
 	use {
 		"norcalli/nvim-colorizer.lua",
 		config = get_setup("colorizer"),
