@@ -13,3 +13,5 @@ vim.g.mapleader = " "
 -- Permanent undo
 vim.o.undodir = os.getenv('HOME') .. '/.vimdid'
 vim.o.undofile = true
+
+vim.opt.background = "dark"

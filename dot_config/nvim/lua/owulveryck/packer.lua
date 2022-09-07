@@ -49,7 +49,7 @@ return require('packer').startup(function(use)
 		'nvim-lualine/lualine.nvim',
 		config = get_setup('lualine'),
 	}
-	use 'numToStr/Comment.nvim'
+	-- use 'numToStr/Comment.nvim'
 	-- install without yarn or npm
 	use({
 		"iamcco/markdown-preview.nvim",
