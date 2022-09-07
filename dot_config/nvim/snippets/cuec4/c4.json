@@ -3,8 +3,8 @@
 		"prefix": "system",
 		"body": [
 			"${1}: c4.#System & {",
-				"\tid: \"$1\"",
-				"\tlabel: \"$1\"",
+				"\tid:          \"$1\"",
+				"\tlabel:       \"$1\"",
 				"\tdescription: \"$1\"",
 				"}"
 		],
@@ -14,8 +14,8 @@
 		"prefix": "container",
 		"body": [
 			"${1}: c4.#Container & {",
-				"\tid: \"$1\"",
-				"\tlabel: \"$1\"",
+				"\tid:          \"$1\"",
+				"\tlabel:       \"$1\"",
 				"\tdescription: \"$1\"",
 				"}"
 		],
@@ -24,7 +24,7 @@
 	"Add a unamed relation": {
 		"prefix": "relation",
 		"body": [
-			"{source: \"$1\", dest: \"$2\", description: \"$3\"}"
+			"{source: $1, dest: $2, description: \"$3\"}"
 		],
 		"description": "Add a new anonymous Relation"
 	},
@@ -32,11 +32,11 @@
 		"prefix": "tagE",
 		"body": [
 			"$1: c4.#ElementTag & {",
-				"\tid: \"$1\"",
+				"\tid:          \"$1\"",
 				"\tlegendText:  \"$2\"",
 				"\tshape:       \"${3|rounded,eightsided|}\"",
-				"\tbgColor:     \"#$4\"",
-				"\tborderColor: \"#$5\"",
+				"\tbgColor:     \"#${4:aabbcc}\"",
+				"\tborderColor: \"#${5:aabbcc}\"",
 				"}"
 		]
 	},
@@ -44,11 +44,11 @@
 		"prefix": "tagR",
 		"body": [
 			"$1: c4.#RelationTag & {",
-				"\tid: \"$1\"",
-				"\tlegendText:  \"$2\"",
-				"\tlineStyle:       \"${3|dash,dot,bold|}\"",
-				"\ttextColor:     \"#$4\"",
-				"\tlineColor: \"#$5\"",
+				"\tid:         \"$1\"",
+				"\tlegendText: \"$2\"",
+				"\tlineStyle:  \"${3|dash,dot,bold|}\"",
+				"\ttextColor:  \"#${4:aabbcc}\"",
+				"\tlineColor:  \"#${5:aabbcc}\"",
 				"}"
 		]
 	},

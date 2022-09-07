@@ -17,3 +17,10 @@ tagR: c4.#RelationTag & {
 	textColor:  "#"
 	lineColor:  "#"
 }
+gs: c4.#RelationTag & {
+	id:         "gs"
+	legendText: ""
+	lineStyle:  "dash"
+	textColor:  "#aabbcc"
+	lineColor:  "#aabbcc"
+}
