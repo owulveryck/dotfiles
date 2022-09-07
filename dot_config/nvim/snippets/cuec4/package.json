@@ -1,0 +1,11 @@
+{
+	"name": "cuec4",
+	"contributes": {
+		"snippets": [
+			{
+				"language": ["cue"],
+				"path": "./c4.json"
+			}
+		]
+	}
+}
