@@ -5,7 +5,7 @@ local lspconfig = require('lspconfig')
 mason.setup()
 
 mason_lspconfig.setup({
-	ensure_installed = { "sumneko_lua", "rust_analyzer", "gopls", "grammarly", "html", "json" }
+	ensure_installed = { "sumneko_lua", "rust_analyzer", "gopls", "remark_ls", "html", "json" }
 })
 
 mason_lspconfig.setup_handlers({
@@ -24,3 +24,8 @@ lspconfig['rust_analyzer'].setup{
 		["rust-analyzer"] = {}
 	}
 }
+-- lspconfig['grammarly'].setup{
+--	init_options = {
+--		clientId = 'client_BaDkMgx4X19X9UxxYRCXZo',
+--	},
+--}
