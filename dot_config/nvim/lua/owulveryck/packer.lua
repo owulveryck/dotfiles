@@ -34,7 +34,10 @@ return require('packer').startup(function(use)
 		},
 	}
 	use 'neovim/nvim-lspconfig'
-	use 'nvim-lualine/lualine.nvim'
+	use {
+		'nvim-lualine/lualine.nvim',
+		config = get_setup('lualine'),
+	}
 	use 'numToStr/Comment.nvim'
 	-- install without yarn or npm
 	use({

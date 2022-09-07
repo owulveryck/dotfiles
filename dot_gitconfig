@@ -1,3 +1,6 @@
+[init]
+        templatedir = /Users/olivierwulveryck/.acn-security-tools/git-template
+        defaultBranch = main
 [url "git@github.com:"]
         insteadOf = https://github.com/
 [user]
@@ -7,3 +10,5 @@
         cookiefile = ~/.gitcookies
 [core]
         excludesfile = ~/.gitignore_global
+[credential "https://source.developers.google.com"]
+        helper = gcloud.sh
