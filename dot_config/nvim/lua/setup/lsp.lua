@@ -41,12 +41,12 @@ local lsp_flags = {
 	debounce_text_changes = 150,
 }
 -- Set up lspconfig.
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 mason.setup()
 
 mason_lspconfig.setup({
-	ensure_installed = { "sumneko_lua", "rust_analyzer", "gopls", "remark_ls", "html", "json" }
+	ensure_installed = { "sumneko_lua", "rust_analyzer", "gopls", "html", "ltex"}
 })
 
 mason_lspconfig.setup_handlers({
@@ -58,13 +58,22 @@ mason_lspconfig.setup_handlers({
 			capabilities = capabilities
 		}
 	end,
-	lspconfig['rust_analyzer'].setup {
-		on_attach = on_attach,
-		flags = lsp_flags,
-		-- Server-specific settings...
-		settings = {
-			["rust-analyzer"] = {}
-		}
+	--	lspconfig['marksman'].setup {
+		--		cmd = { "~/.local/bin/marksman", "server"},
+		--	},
+		lspconfig['rust_analyzer'].setup {
+			on_attach = on_attach,
+			flags = lsp_flags,
+			-- Server-specific settings...
+			settings = {
+				["rust-analyzer"] = {}
+			}
 
-	}
-})
+		},
+		lspconfig['ltex'].setup {
+			on_attach = on_attach,
+			cmd = { "ltex-ls" },
+			filetypes = { "markdown", "text" },
+			flags = { debounce_text_changes = 300 },
+		}
+	})

@@ -32,7 +32,7 @@ return require('packer').startup(function(use)
 
 		requires = {
 			"hrsh7th/cmp-buffer", "hrsh7th/cmp-nvim-lsp",
-			'quangnguyen30192/cmp-nvim-ultisnips', 'hrsh7th/cmp-nvim-lua',
+			'hrsh7th/cmp-nvim-lua',
 			'octaltree/cmp-look', 'hrsh7th/cmp-path', 'hrsh7th/cmp-calc',
 			'f3fora/cmp-spell', 'hrsh7th/cmp-emoji'
 		},
@@ -54,15 +54,19 @@ return require('packer').startup(function(use)
 	use({
 		"iamcco/markdown-preview.nvim",
 		run = function() vim.fn["mkdp#util#install"]() end,
+		ft = 'markdown', 
 	})
-	use 'ixru/nvim-markdown'
+	-- use 'ixru/nvim-markdown'
 	use "rafamadriz/friendly-snippets"
-	use 'jjo/vim-cue'
+	use {
+		'jjo/vim-cue',
+		ft = 'cue',
+	}
 	-- Installation
 	use { 'saadparwaiz1/cmp_luasnip' }
 	use {
 		'L3MON4D3/LuaSnip',
-		after = 'nvim-cmp',
+		--after = 'nvim-cmp',
 		config = get_setup('snippets'),
 	}
 	use {

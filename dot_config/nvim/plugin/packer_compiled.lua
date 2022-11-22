@@ -76,10 +76,8 @@ time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
   LuaSnip = {
     config = { 'require("setup/snippets")' },
-    load_after = {},
     loaded = true,
-    needs_bufread = true,
-    path = "/Users/olivierwulveryck/.local/share/nvim/site/pack/packer/opt/LuaSnip",
+    path = "/Users/olivierwulveryck/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
   ["cmp-buffer"] = {
@@ -111,11 +109,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/olivierwulveryck/.local/share/nvim/site/pack/packer/start/cmp-nvim-lua",
     url = "https://github.com/hrsh7th/cmp-nvim-lua"
-  },
-  ["cmp-nvim-ultisnips"] = {
-    loaded = true,
-    path = "/Users/olivierwulveryck/.local/share/nvim/site/pack/packer/start/cmp-nvim-ultisnips",
-    url = "https://github.com/quangnguyen30192/cmp-nvim-ultisnips"
   },
   ["cmp-path"] = {
     loaded = true,
@@ -168,8 +161,10 @@ _G.packer_plugins = {
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
   ["markdown-preview.nvim"] = {
-    loaded = true,
-    path = "/Users/olivierwulveryck/.local/share/nvim/site/pack/packer/start/markdown-preview.nvim",
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/Users/olivierwulveryck/.local/share/nvim/site/pack/packer/opt/markdown-preview.nvim",
     url = "https://github.com/iamcco/markdown-preview.nvim"
   },
   ["mason-lspconfig.nvim"] = {
@@ -194,7 +189,7 @@ _G.packer_plugins = {
     url = "https://github.com/windwp/nvim-autopairs"
   },
   ["nvim-cmp"] = {
-    after = { "LuaSnip", "go.nvim" },
+    after = { "go.nvim" },
     config = { 'require("setup/cmp")' },
     loaded = true,
     only_config = true,
@@ -212,11 +207,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/olivierwulveryck/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
-  },
-  ["nvim-markdown"] = {
-    loaded = true,
-    path = "/Users/olivierwulveryck/.local/share/nvim/site/pack/packer/start/nvim-markdown",
-    url = "https://github.com/ixru/nvim-markdown"
   },
   ["nvim-treesitter"] = {
     config = { 'require("setup/treesitter")' },
@@ -252,8 +242,10 @@ _G.packer_plugins = {
     url = "https://github.com/akinsho/toggleterm.nvim"
   },
   ["vim-cue"] = {
-    loaded = true,
-    path = "/Users/olivierwulveryck/.local/share/nvim/site/pack/packer/start/vim-cue",
+    loaded = false,
+    needs_bufread = true,
+    only_cond = false,
+    path = "/Users/olivierwulveryck/.local/share/nvim/site/pack/packer/opt/vim-cue",
     url = "https://github.com/jjo/vim-cue"
   },
   ["vim-startuptime"] = {
@@ -264,26 +256,18 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: lualine.nvim
+time([[Config for lualine.nvim]], true)
+require("setup/lualine")
+time([[Config for lualine.nvim]], false)
 -- Config for: nvim-treesitter
 time([[Config for nvim-treesitter]], true)
 require("setup/treesitter")
 time([[Config for nvim-treesitter]], false)
--- Config for: nvim-autopairs
-time([[Config for nvim-autopairs]], true)
-try_loadstring("\27LJ\2\n@\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\19nvim-autopairs\frequire\0", "config", "nvim-autopairs")
-time([[Config for nvim-autopairs]], false)
--- Config for: nvim-cmp
-time([[Config for nvim-cmp]], true)
-require("setup/cmp")
-time([[Config for nvim-cmp]], false)
 -- Config for: nvim-lspconfig
 time([[Config for nvim-lspconfig]], true)
 require("setup/lsp")
 time([[Config for nvim-lspconfig]], false)
--- Config for: telescope.nvim
-time([[Config for telescope.nvim]], true)
-require("setup/telescope")
-time([[Config for telescope.nvim]], false)
 -- Config for: toggleterm.nvim
 time([[Config for toggleterm.nvim]], true)
 try_loadstring("\27LJ\2\n8\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\15toggleterm\frequire\0", "config", "toggleterm.nvim")
@@ -292,22 +276,28 @@ time([[Config for toggleterm.nvim]], false)
 time([[Config for nvim-colorizer.lua]], true)
 require("setup/colorizer")
 time([[Config for nvim-colorizer.lua]], false)
--- Config for: lualine.nvim
-time([[Config for lualine.nvim]], true)
-require("setup/lualine")
-time([[Config for lualine.nvim]], false)
--- Load plugins in order defined by `after`
-time([[Sequenced loading]], true)
-vim.cmd [[ packadd LuaSnip ]]
-
+-- Config for: nvim-cmp
+time([[Config for nvim-cmp]], true)
+require("setup/cmp")
+time([[Config for nvim-cmp]], false)
+-- Config for: nvim-autopairs
+time([[Config for nvim-autopairs]], true)
+try_loadstring("\27LJ\2\n@\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\19nvim-autopairs\frequire\0", "config", "nvim-autopairs")
+time([[Config for nvim-autopairs]], false)
+-- Config for: telescope.nvim
+time([[Config for telescope.nvim]], true)
+require("setup/telescope")
+time([[Config for telescope.nvim]], false)
 -- Config for: LuaSnip
+time([[Config for LuaSnip]], true)
 require("setup/snippets")
-
-time([[Sequenced loading]], false)
+time([[Config for LuaSnip]], false)
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
 time([[Defining lazy-load filetype autocommands]], true)
+vim.cmd [[au FileType markdown ++once lua require("packer.load")({'markdown-preview.nvim'}, { ft = "markdown" }, _G.packer_plugins)]]
+vim.cmd [[au FileType cue ++once lua require("packer.load")({'vim-cue'}, { ft = "cue" }, _G.packer_plugins)]]
 vim.cmd [[au FileType go ++once lua require("packer.load")({'go.nvim'}, { ft = "go" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)
 vim.cmd("augroup END")
@@ -315,6 +305,9 @@ vim.cmd [[augroup filetypedetect]]
 time([[Sourcing ftdetect script at: /Users/olivierwulveryck/.local/share/nvim/site/pack/packer/opt/go.nvim/ftdetect/go.vim]], true)
 vim.cmd [[source /Users/olivierwulveryck/.local/share/nvim/site/pack/packer/opt/go.nvim/ftdetect/go.vim]]
 time([[Sourcing ftdetect script at: /Users/olivierwulveryck/.local/share/nvim/site/pack/packer/opt/go.nvim/ftdetect/go.vim]], false)
+time([[Sourcing ftdetect script at: /Users/olivierwulveryck/.local/share/nvim/site/pack/packer/opt/vim-cue/ftdetect/cue.vim]], true)
+vim.cmd [[source /Users/olivierwulveryck/.local/share/nvim/site/pack/packer/opt/vim-cue/ftdetect/cue.vim]]
+time([[Sourcing ftdetect script at: /Users/olivierwulveryck/.local/share/nvim/site/pack/packer/opt/vim-cue/ftdetect/cue.vim]], false)
 vim.cmd("augroup END")
 
 _G._packer.inside_compile = false
