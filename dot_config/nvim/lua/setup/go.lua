@@ -1,4 +1,6 @@
 local go = require'go'
+local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+
 
 go.setup({
 
@@ -15,6 +17,10 @@ go.setup({
 	comment_placeholder = '' ,  -- comment_placeholder your cool placeholder e.g. ﳑ       
 	icons = {breakpoint = '🧘', currentpos = '🏃'},  -- setup to `false` to disable icons setup
 	verbose = false,  -- output loginf in messages
+	lsp_cfg = {
+		capabilities = capabilities,
+		-- other setups
+	},
 	lsp_cfg = false, -- true: use non-default gopls setup specified in go/lsp.lua
 	-- false: do nothing
 	-- if lsp_cfg is a table, merge table with with non-default gopls setup in go/lsp.lua, e.g.
