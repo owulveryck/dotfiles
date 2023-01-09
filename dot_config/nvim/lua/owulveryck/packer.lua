@@ -12,7 +12,7 @@ return require('packer').startup(function(use)
 	use {
 		'tanvirtin/monokai.nvim',
 		config = require('monokai').setup { palette = require('monokai').pro },
-	}
+}
 	use 'dstein64/vim-startuptime'
 	use {
 		'nvim-treesitter/nvim-treesitter',
@@ -87,4 +87,9 @@ return require('packer').startup(function(use)
 		"norcalli/nvim-colorizer.lua",
 		config = get_setup("colorizer"),
 	}
+	use {
+		'leoluz/nvim-dap-go',
+		config = get_setup("dap-go"),
+	}
+	use 'mfussenegger/nvim-dap'
 end)
