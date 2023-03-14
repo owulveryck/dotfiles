@@ -7,12 +7,15 @@ syntax match wtgColon /:/
 syntax match wtgDot /\./ containedin=ALL
 
 syntax region wtgComment start=/\/\*/ end=/\*\// contains=wtgTodo
-syntax match wtgComment /\/\/.*$/ contained
+syntax match wtgComment "//.*$" containedin=ALL
+
 syntax match wtgX /\(\.\|.\)\@<=x\(\.\|.\)\@=/
+syntax match wtgGt /\(\.\|.\)\@<=>\(\.\|.\)\@=/
 syntax match wtgDashes / \zs-\+\ze / containedin=ALL
 
 
-highlight wtgX guifg=#ff0000
+highlight wtgGt guifg=#ff0000
+highlight wtgX guifg=#ffff99
 highlight wtgDashes guifg=#00ff00
 highlight wtgPipe guifg=#00ff00
 highlight wtgBlock guifg=#bbbbbb
