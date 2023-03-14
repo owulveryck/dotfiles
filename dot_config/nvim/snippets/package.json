@@ -1,10 +1,14 @@
 {
-	"name": "cuec4",
+	"name": "custom-snippets",
 	"contributes": {
 		"snippets": [
 			{
 				"language": ["cue"],
 				"path": "./c4.json"
+			},
+			{
+				"language": ["wtg"],
+				"path": "./wtg.json"
 			}
 		]
 	}
