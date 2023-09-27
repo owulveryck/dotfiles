@@ -46,7 +46,7 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protoc
 mason.setup()
 
 mason_lspconfig.setup({
-	ensure_installed = { "sumneko_lua", "rust_analyzer", "gopls", "html", "ltex"}
+	ensure_installed = { "rust_analyzer", "gopls", "html", "ltex"}
 })
 
 mason_lspconfig.setup_handlers({
