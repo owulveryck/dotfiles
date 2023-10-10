@@ -15,3 +15,4 @@ vim.o.undodir = os.getenv('HOME') .. '/.vimdid'
 vim.o.undofile = true
 
 vim.opt.background = "dark"
+vim.opt.clipboard = 'unnamedplus'
