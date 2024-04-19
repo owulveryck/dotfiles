@@ -7,10 +7,10 @@ go.setup({
 	disable_defaults = false, -- true|false when true set false to all boolean settings and replace all table
 	-- settings with {}
 	go='go', -- go command, can be go[default] or go1.18beta1
-	goimport='gopls', -- goimport command, can be gopls[default] or goimport
+	goimports='gopls', -- goimport command, can be gopls[default] or goimport
 	fillstruct = 'gopls', -- can be nil (use fillstruct, slower) and gopls
 	gofmt = 'gofumpt', --gofmt cmd,
-	max_line_len = 128, -- max line length in golines format, Target maximum line length for golines
+	-- max_line_len = 128, -- max line length in golines format, Target maximum line length for golines
 	tag_transform = false, -- can be transform option("snakecase", "camelcase", etc) check gomodifytags for details and more options
 	gotests_template = "", -- sets gotests -template parameter (check gotests for details)
 	gotests_template_dir = "", -- sets gotests -template_dir parameter (check gotests for details)
@@ -32,10 +32,10 @@ go.setup({
 	lsp_keymaps = true, -- set to false to disable gopls/lsp keymap
 	lsp_codelens = true, -- set to false to disable codelens, true by default, you can use a function
 	-- to setup a table of codelens
-	lsp_diag_hdlr = true, -- hook lsp diag handler
+	-- lsp_diag_hdlr = true, -- hook lsp diag handler
 	-- virtual text setup
-	lsp_diag_virtual_text = { space = 0, prefix = "" },
-	lsp_diag_signs = true,
+	-- lsp_diag_virtual_text = { space = 0, prefix = "" },
+	-- lsp_diag_signs = true,
 	lsp_diag_update_in_insert = false,
 	lsp_document_formatting = true,
 	-- set to true: use gopls to format

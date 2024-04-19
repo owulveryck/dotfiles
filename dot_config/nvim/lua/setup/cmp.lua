@@ -61,3 +61,8 @@ cmp.setup.filetype('gitcommit', {
 		{ name = 'buffer' },
 	})
 })
+
+-- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
+-- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+
+

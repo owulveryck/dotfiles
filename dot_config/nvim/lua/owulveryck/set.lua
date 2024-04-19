@@ -16,3 +16,6 @@ vim.o.undofile = true
 
 vim.opt.background = "dark"
 vim.opt.clipboard = 'unnamedplus'
+
+vim.api.nvim_command('autocmd BufRead,BufNewFile *.md set filetype=markdown')
+vim.api.nvim_command('autocmd BufRead,BufNewFile *.md set syntax=markdown')

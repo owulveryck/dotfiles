@@ -46,7 +46,7 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protoc
 mason.setup()
 
 mason_lspconfig.setup({
-	ensure_installed = { "rust_analyzer", "gopls", "html", "ltex"}
+	ensure_installed = { "rust_analyzer", "gopls", "html"}
 })
 
 mason_lspconfig.setup_handlers({
@@ -69,11 +69,5 @@ mason_lspconfig.setup_handlers({
 				["rust-analyzer"] = {}
 			}
 
-		},
-		lspconfig['ltex'].setup {
-			on_attach = on_attach,
-			cmd = { "ltex-ls" },
-			filetypes = { "markdown", "text" },
-			flags = { debounce_text_changes = 300 },
 		}
 	})

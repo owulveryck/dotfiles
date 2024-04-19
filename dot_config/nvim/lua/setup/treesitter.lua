@@ -3,7 +3,7 @@ local ts = require('nvim-treesitter.configs')
 
 ts.setup {
 	-- A list of parser names, or "all"
-	ensure_installed = { "c", "lua", "go", "markdown_inline" },
+	ensure_installed = { "c", "lua", "go" },
 
 	-- Install parsers synchronously (only applied to `ensure_installed`)
 	sync_install = false,
