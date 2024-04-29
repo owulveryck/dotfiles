@@ -1,8 +1,2 @@
-require('impatient')
-vim.opt.termguicolors = true
-require("owulveryck")
-if has("unnamedplus")
-    set clipboard=unnamedplus
-else
-    set clipboard=unnamed
-endif
+-- bootstrap lazy.nvim, LazyVim and your plugins
+require("config.lazy")
