@@ -12,7 +12,7 @@ return {
       disable_defaults = false, -- true|false when true set false to all boolean settings and replace all table
       -- settings with {}
       go = "go", -- go command, can be go[default] or go1.18beta1
-      goimports = "goimport", -- goimport command, can be gopls[default] or goimport
+      goimports = "goimports", -- goimports command, can be gopls[default] or goimports
       fillstruct = "gopls", -- can be nil (use fillstruct, slower) and gopls
       gofmt = "gofumpt", --gofmt cmd,
       -- max_line_len = 128, -- max line length in golines format, Target maximum line length for golines
@@ -46,7 +46,7 @@ return {
       -- set to true: use gopls to format
       -- false if you want to use other formatter tool(e.g. efm, nulls)
       lsp_inlay_hints = {
-        enable = true,
+        enable = false,  -- Disabled to match global lspconfig setting
         -- Only show inlay hints for the current line
         only_current_line = true,
         -- Event which triggers a refersh of the inlay hints.
@@ -97,7 +97,6 @@ return {
       --  Do not enable this if you already added the path, that will duplicate the entries
     })
   end,
-  event = { "CmdlineEnter" },
   ft = { "go", "gomod" },
   build = ':lua require("go.install").update_all_sync()',   -- if you need to install/update all binaries
 }
